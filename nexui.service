@@ -1,0 +1,19 @@
+[Unit]
+Description=NEXO-in-the-cloud demo
+Documentation=https://github.com/hurufu/nexoid-nexui-flask
+After=network.target
+Requires=ufw.service
+
+[Service]
+Type=simple
+User=nexui
+Group=nexui
+WorkingDirectory=/var/cache/nexui
+PermissionsStartOnly=true
+ExecStartPre=/usr/bin/ufw allow proto tcp from any to any port 51004,5000
+ExecStart=/usr/bin/python -m nexui
+ExecStopPost=/usr/bin/ufw deny proto tcp from any to any port 51004,5000
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+pre_install() {
+    useradd -rm -b /var/cache -s /sbin/nologin -c 'Nexo-in-the-Cloud,,,,' nexui
+}
+
+post_install() {
+    systemctl enable nexui
+    systemctl start nexui
+}
+
+pre_remove() {
+    systemctl disable nexui
+    systemctl stop nexui
+}
+
+pre_upgrade() {
+    systemctl disable nexui
+    systemctl stop nexui
+}
+
+post_upgrade() {
+    systemctl enable nexui
+    systemctl start nexui
+}
+
+post_remove() {
+    rmdir /var/cache/nexui
+    userdel nexui
+}

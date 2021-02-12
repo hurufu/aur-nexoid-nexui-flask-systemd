@@ -18,12 +18,8 @@ install=nexui.install
 source=(
     nexui.service
 )
-md5sums=(
-    179174b2f27bc612fb35375fff9c9933
-)
-sha1sums=(
-    e86244af11cabbb40e2b14185b675040e0674386
-)
+md5sums=('00790eb3fbdc274f33747dba68a9647a')
+sha1sums=('4a3e9b4278c03e5608209f5f61ce31bdda555aa0')
 
 package() {
     install -Dm444 -t "$pkgdir/usr/lib/systemd/system" nexui.service

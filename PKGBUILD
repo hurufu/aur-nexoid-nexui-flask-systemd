@@ -10,7 +10,7 @@ groups=(nexoid)
 depends=(
     systemd
     ufw
-    nexoid-nexui-flask-git
+    nexoid-nexui-flask
 )
 
 install=nexui.install

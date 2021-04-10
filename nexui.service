@@ -13,6 +13,7 @@ PermissionsStartOnly=true
 ExecStartPre=/usr/bin/ufw allow proto tcp from any to any port 51004,5000
 ExecStart=/usr/bin/python -m nexui
 ExecStopPost=/usr/bin/ufw deny proto tcp from any to any port 51004,5000
+RuntimeMaxSec=10800
 Restart=on-failure
 
 [Install]
